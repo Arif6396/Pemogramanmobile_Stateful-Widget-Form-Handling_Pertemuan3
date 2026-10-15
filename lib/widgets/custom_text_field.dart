@@ -4,11 +4,13 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String? hint;
-
   final IconData? prefixIcon;
   final bool obscureText;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
+  final bool readOnly; // Tambahan untuk Latihan 2
+  final VoidCallback? onTap; // Tambahan untuk Latihan 2
+
   const CustomTextField({
     super.key,
     required this.controller,
@@ -18,7 +20,10 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
     this.validator,
+    this.readOnly = false,
+    this.onTap,
   });
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,6 +41,8 @@ class CustomTextField extends StatelessWidget {
         obscureText: obscureText,
         keyboardType: keyboardType,
         validator: validator,
+        readOnly: readOnly,
+        onTap: onTap,
       ),
     );
   }
